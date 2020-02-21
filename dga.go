@@ -22,7 +22,7 @@ func (n Node) String() string {
 }
 
 type MapIdNode map[int]*Node
-type MapNameNode map[string]int
+type MapNameId map[string]int
 
 func (nodes MapIdNode) String() string {
 	var line string
@@ -33,8 +33,8 @@ func (nodes MapIdNode) String() string {
 }
 
 type Dag struct {
-	nodes MapIdNode
-	contacts MapNameNode
+	nodes     MapIdNode
+	contacts  MapNameId
 	nContacts int
 }
 
@@ -74,6 +74,11 @@ func (dag *Dag) AddLink(from, to string) error {
 	fromNode.reporters = append(fromNode.reporters, toNode)
 	toNode.nManagers++
 	return nil
+}
+
+func (dag *Dag) hasEmployee (name string) bool {
+	_,ok := dag.contacts[name]
+	return ok
 }
 
 func (dag *Dag) isCyclicUtil(v int, visited []bool, recStack []bool) bool {

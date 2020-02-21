@@ -32,7 +32,7 @@ func TestFindLCA(t *testing.T) {
 			return
 		}
 		if got != c.want {
-			t.Errorf("ReverseRunes(%q) == %q, want %q", c.in, got, c.want)
+			t.Errorf("FindLCA(%q) == %q, want %q", c.in, got, c.want)
 		}
 	}
 }
