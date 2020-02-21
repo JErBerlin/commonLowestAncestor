@@ -6,7 +6,7 @@
 *.dylib
 
 # Data input files
-*.csv
+# *.csv
 
 # tmp dir
 tmp/
