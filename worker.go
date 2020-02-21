@@ -18,7 +18,7 @@ type Worker struct {
 
 // FillWorker fills the fields of the worker type with the inputs from a record
 func FillWorker(record Record) (Worker, error) {
-	if len(record) != len([]string{"name","id","reporters"}) {
+	if len(record) != len([]string{"name", "id", "reporters"}) {
 		return Worker{}, errors.New("filling of worker failed: record has invalid number of fields")
 	}
 

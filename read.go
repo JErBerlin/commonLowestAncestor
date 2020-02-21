@@ -5,6 +5,7 @@ import (
 	"encoding/csv"
 	"io"
 )
+
 // csv reader splits every record line by the separator
 type Record = []string
 

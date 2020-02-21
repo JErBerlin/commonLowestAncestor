@@ -22,7 +22,7 @@ func TestReadRecords(t *testing.T) {
 		return
 	}
 	for i, _ := range got {
-		if strings.Join(got[i]," ") != strings.Join(want[i], " ") {
+		if strings.Join(got[i], " ") != strings.Join(want[i], " ") {
 			t.Errorf("ReadRecords(%q) == \n%q, \nwant %q", in, got[i], want[i])
 		}
 	}

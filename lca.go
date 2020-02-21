@@ -10,8 +10,8 @@ import (
 // FindLCA returns the name of the common manager (ancestor) of two employees (nodes)
 // if one of the employees is manager of the other, the earlier is returned
 // returns an error if the dg is cyclic
-func FindLCA(dag *Dag, CEOName string, employeeOne, employeeTwo string) (string, error) {
-	root := dag.nodes[dag.contacts[CEOName]]
+func FindLCA(dag *Dag, employeeOne, employeeTwo string) (string, error) {
+	root := dag.root
 	keyOne := dag.contacts[employeeOne]
 	keyTwo := dag.contacts[employeeTwo]
 

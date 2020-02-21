@@ -7,15 +7,15 @@ func TestFindLCA(t *testing.T) {
 	directory.AddEmployee("Markus", 0)
 	directory.AddEmployee("Erik", 1)
 	directory.AddEmployee("Artashes", 2)
-	directory.AddLink("Markus","Erik")
-	directory.AddLink("Markus","Artashes")
+	directory.AddLink("Markus", "Erik")
+	directory.AddLink("Markus", "Artashes")
 	directory.AddEmployee("Akshai", 3)
 	directory.AddEmployee("Martin", 4)
-	directory.AddLink("Artashes","Akshai")
-	directory.AddLink("Artashes","Martin")
+	directory.AddLink("Artashes", "Akshai")
+	directory.AddLink("Artashes", "Martin")
 
 	cases := []struct {
-		in []string
+		in   []string
 		want string
 	}{
 		{[]string{"Akshai", "Martin"}, "Artashes"},
@@ -24,9 +24,8 @@ func TestFindLCA(t *testing.T) {
 		{[]string{"Artashes", "Erik"}, "Markus"},
 		{[]string{"Markus", "Martin"}, "Markus"},
 	}
-	CEO := "Markus"
 	for _, c := range cases {
-		got, err := FindLCA(directory, CEO, c.in[0], c.in[1])
+		got, err := FindLCA(directory, c.in[0], c.in[1])
 		if err != nil {
 			t.Errorf("lca(%q) == Err: %v, want %q", c.in, err, c.want)
 			return

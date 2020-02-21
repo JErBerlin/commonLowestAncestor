@@ -27,12 +27,13 @@ type MapNameId map[string]int
 func (nodes MapIdNode) String() string {
 	var line string
 	for id, node := range nodes {
-		line += fmt.Sprintf("%d: %v\n",id, node)
+		line += fmt.Sprintf("%d: %v\n", id, node)
 	}
 	return line
 }
 
 type Dag struct {
+	root      *Node
 	nodes     MapIdNode
 	contacts  MapNameId
 	nContacts int
@@ -54,6 +55,9 @@ func NewDag() *Dag {
 
 func (dag *Dag) AddEmployee(name string, id int) *Node {
 	node := &Node{name: name, id: id}
+	if dag.nContacts == 0 {
+		dag.root = node
+	}
 	dag.nodes[id] = node
 	dag.contacts[name] = id
 	dag.nContacts++
@@ -76,8 +80,8 @@ func (dag *Dag) AddLink(from, to string) error {
 	return nil
 }
 
-func (dag *Dag) hasEmployee (name string) bool {
-	_,ok := dag.contacts[name]
+func (dag *Dag) hasEmployee(name string) bool {
+	_, ok := dag.contacts[name]
 	return ok
 }
 

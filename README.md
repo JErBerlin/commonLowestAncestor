@@ -1,4 +1,4 @@
-# Representation of an organisation with graphs
+# Closest common manager
 
 ## Overview
 
@@ -26,13 +26,22 @@ The problem can be solved making use of the common lowest ancestor algorithm in 
 
 ### Input 
 
-The input will be given in a csv file, listing all employees. Every record will have three fields: it will hold the id 
-of the employee, its name and the ids of the employees who are reporting to it.
+The information of the organization is read from a csv file, where there is a listing all employees. Every record has
+three fields: the id of the employee, their name and the ids of the employees who are reporting to them.
 
-### Interface
+The rest of the input will be given as arguments in the command line: in first place the path to the csv file, and then
+the two names of the employees for which we want to know the closest common manager. 
 
-An interface will allow to enter the ids of two of the employees and will return the id of the common manager. There 
-will be always a solution since there is the CEO as the top manager.
+## How to run..
 
+###  the tests
 
+`go test`
 
+###  the compiler 
+
+`go build -o ccm.exe`
+
+###  the program 
+
+`ccm path_to_file employee_1 employee_2`
